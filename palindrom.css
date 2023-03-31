@@ -1,0 +1,119 @@
+	body {
+		margin-top: 12rem;
+		}
+			div#container {
+				margin: auto;
+				width: 640px;
+			}
+			div#headerContainer{
+				display: flex;
+				flex-direction: row;
+				max-height: 6rem;
+			}
+			div#header{
+				display: inline-flex;
+			}
+			h1 {
+				font-family: 'Cardo', serif;
+				font-weight: bold;
+				font-size: 6ch;
+				text-align: center;
+			}
+			a.sator {
+				background-color: white;
+				color: black;
+				font-family: "Bitstream Charter", "URW Palladio L", Palatino, "Palatino Linotype", "Book Antiqua", serif;
+				font-weight: bolder;
+				font-size: 2ch;
+			}
+			table.sator{
+				position: absolute;
+				margin-left: 2ch;
+				margin-top: 6ch;
+				cursor: pointer;
+			}
+			td{
+				min-width: 2.5ch;
+				min-height: 2.5ch;
+				max-width: 2.5ch;
+				max-height: 2.5ch;
+				padding: 0;
+				text-align: center;
+				border: solid 1px black;
+				border-radius: 4px;
+			}
+			td.default{
+				background-color: white;
+				color: black;
+			}
+			td.marked{
+				background-color: gray;
+				color: whitesmoke;
+			}
+			td.begin{
+				background-color: #1d18f6;
+				color: whitesmoke;
+			}
+			table.sator::after{
+				position: fixed;
+				content: "Vad är en palindrom?";
+				transform: translateX(-2.5ch) translateY(1ch);
+				padding: 0.6ch;
+				font-family: serif;
+				font-weight: bold;
+				font-size: 2ch;
+				text-align: center;
+				color: whitesmoke;
+				background: black;
+				border-radius: 3px;
+				opacity: 0;
+				transition: 275ms opacity ease-in-out;
+				transition-delay: 500ms;
+				visibility: hidden;
+			}
+			table.sator:hover:after{
+				opacity: 69%;
+				visibility: visible;
+				z-index: 1;
+			}
+			p {
+				font-family: 'Times New Roman', serif;
+				font-size: 2ch;
+				text-align: center;
+			}
+			div#searchContainer {
+				display: flex;
+ 				justify-content: center;
+ 				margin-top: 11ch;
+ 				height: 45px;
+			}
+			div#searchbar {
+				height: 45px;
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;
+			}
+			input {
+				font-family: 'Tahoma', sans-serif;
+				font-size: 2ch;
+				width: 45ch;
+				height: 45px;
+				border-color: lightgray;
+			}
+			input:focus,
+			select:focus,
+			textarea:focus,
+			button:focus {
+    			outline: none;
+			}
+			div#submit {
+				display: inline;
+			}
+			div#search {
+				height: 45px;
+				display: inline-flex;
+				justify-content: center;
+				align-items: center;				
+				margin-left: 4px;
+				cursor: pointer;
+			}
