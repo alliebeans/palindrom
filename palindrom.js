@@ -73,148 +73,90 @@ String.prototype.palindrome = function(){
 					})
 				}
 
-				function markLetter (ev){
-					const aa = document.querySelector("#aa");
-					const ab = document.querySelector("#ab");
-					const ac = document.querySelector("#ac");
-					const ad = document.querySelector("#ad");
-					const ae = document.querySelector("#ae");
+				function markLetter (ev) {
+					ev.preventDefault();
 
-					const ba = document.querySelector("#ba");
-					const bb = document.querySelector("#bb");
-					const bc = document.querySelector("#bc");
-					const bd = document.querySelector("#bd");
-					const be = document.querySelector("#be");
+					const aa = document.getElementById("aa");
+					const ab = document.getElementById("ab");
+					const ac = document.getElementById("ac");
+					const ad = document.getElementById("ad");
+					const ae = document.getElementById("ae");
 
-					const ca = document.querySelector("#ca");
-					const cb = document.querySelector("#cb");
-					const cc = document.querySelector("#cc");
-					const cd = document.querySelector("#cd");
-					const ce = document.querySelector("#ce");
+					const ba = document.getElementById("ba");
+					const bb = document.getElementById("bb");
+					const bc = document.getElementById("bc");
+					const bd = document.getElementById("bd");
+					const be = document.getElementById("be");
 
-					const da = document.querySelector("#da");
-					const db = document.querySelector("#db");
-					const dc = document.querySelector("#dc");
-					const dd = document.querySelector("#dd");
-					const de = document.querySelector("#de");
+					const ca = document.getElementById("ca");
+					const cb = document.getElementById("cb");
+					const cc = document.getElementById("cc");
+					const cd = document.getElementById("cd");
+					const ce = document.getElementById("ce");
 
-					const ea = document.querySelector("#ea");
-					const eb = document.querySelector("#eb");
-					const ec = document.querySelector("#ec");
-					const ed = document.querySelector("#ed");
-					const ee = document.querySelector("#ee");
+					const da = document.getElementById("da");
+					const db = document.getElementById("db");
+					const dc = document.getElementById("dc");
+					const dd = document.getElementById("dd");
+					const de = document.getElementById("de");
 
-					console.log(ev.target);
-					allTd.forEach((td)=>{
-						td.setAttribute("class", "default");
-					})
-					ev.target.setAttribute("class", "marked");
-					switch (ev.target.getAttribute("id")){
-						case "aa":
-						ev.target.setAttribute("class", "begin");
-						ab.setAttribute("class", "marked");
-						ac.setAttribute("class", "marked");
-						ad.setAttribute("class", "marked");
-						ae.setAttribute("class", "marked");
-						ba.setAttribute("class", "marked");
-						ca.setAttribute("class", "marked");
-						da.setAttribute("class", "marked");
-						ea.setAttribute("class", "marked");
-						break;
-						case "ab":
-						ev.target.setAttribute("class", "begin");
-						bb.setAttribute("class", "marked");
-						bc.setAttribute("class", "marked");
-						bd.setAttribute("class", "marked");
-						be.setAttribute("class", "marked");
-						ba.setAttribute("class", "begin");
-						db.setAttribute("class", "marked");
-						eb.setAttribute("class", "marked");
-						cb.setAttribute("class", "marked");
-						break;
-						case "ba":
-						ev.target.setAttribute("class", "begin");
-						bb.setAttribute("class", "marked");
-						bc.setAttribute("class", "marked");
-						bd.setAttribute("class", "marked");
-						be.setAttribute("class", "marked");
-						ab.setAttribute("class", "begin");
-						db.setAttribute("class", "marked");
-						eb.setAttribute("class", "marked");
-						cb.setAttribute("class", "marked");
-						break;
-						case "ac":
-						ev.target.setAttribute("class", "begin");
-						bc.setAttribute("class", "marked");
-						cc.setAttribute("class", "marked");
-						dc.setAttribute("class", "marked");
-						ec.setAttribute("class", "begin");
-						ca.setAttribute("class", "begin");
-						cb.setAttribute("class", "marked");
-						cd.setAttribute("class", "marked");
-						ce.setAttribute("class", "begin");
-						break;
-						case "ca":
-						bc.setAttribute("class", "marked");
-						cc.setAttribute("class", "marked");
-						dc.setAttribute("class", "marked");
-						ec.setAttribute("class", "marked");
-						ac.setAttribute("class", "marked");
-						cb.setAttribute("class", "marked");
-						cd.setAttribute("class", "marked");
-						ce.setAttribute("class", "marked");
-						break;
-						case "ad":
-						ev.target.setAttribute("class", "begin");
-						bd.setAttribute("class", "marked");
-						cd.setAttribute("class", "marked");
-						dd.setAttribute("class", "marked");
-						ed.setAttribute("class", "marked");
-						da.setAttribute("class", "begin");
-						db.setAttribute("class", "marked");
-						dc.setAttribute("class", "marked");
-						de.setAttribute("class", "marked");
-						break;
-						case "da":
-						bd.setAttribute("class", "marked");
-						cd.setAttribute("class", "marked");
-						dd.setAttribute("class", "marked");
-						ed.setAttribute("class", "marked");
-						ad.setAttribute("class", "marked");
-						db.setAttribute("class", "marked");
-						dc.setAttribute("class", "marked");
-						de.setAttribute("class", "marked");
-						break;
-						case "ae":
-						be.setAttribute("class", "marked");
-						ce.setAttribute("class", "marked");
-						de.setAttribute("class", "marked");
-						ee.setAttribute("class", "marked");
-						ea.setAttribute("class", "marked");
-						eb.setAttribute("class", "marked");
-						ec.setAttribute("class", "marked");
-						ed.setAttribute("class", "marked");
-						break;
-						case "ea":
-						be.setAttribute("class", "marked");
-						ce.setAttribute("class", "marked");
-						de.setAttribute("class", "marked");
-						ee.setAttribute("class", "marked");
-						ae.setAttribute("class", "marked");
-						eb.setAttribute("class", "marked");
-						ec.setAttribute("class", "marked");
-						ed.setAttribute("class", "marked");
-						break;
-						case "ee":
-						ed.setAttribute("class", "marked");
-						ec.setAttribute("class", "marked");
-						eb.setAttribute("class", "marked");
-						ea.setAttribute("class", "marked");
-						de.setAttribute("class", "marked");
-						ce.setAttribute("class", "marked");
-						be.setAttribute("class", "marked");
-						ae.setAttribute("class", "marked");
-						break;
+					const ea = document.getElementById("ea");
+					const eb = document.getElementById("eb");
+					const ec = document.getElementById("ec");
+					const ed = document.getElementById("ed");
+					const ee = document.getElementById("ee");
+					
+					let grid = 
+					[
+						[aa, ab, ac, ad, ae],
+						[ba, bb, bc, bd, be],
+						[ca, cb, cc, cd, ce],
+						[da, db, dc, dd, de],
+						[ea, eb, ec, ed, ee],
+					];
+					
+					for (i = 0;i < grid.length;i++){
+						for (j = 0;j < grid.length;j++){
+							if (ev.target == grid[j][i]){
+								if (j == 2 || i == 2) {
+									printVertical(grid, 2);
+									printHorizontal(grid, 2);
+								}
+								else if (j == 0 && i != 0 && i != 4) {
+										printVertical(grid, i);
+										printHorizontal(grid, j+1);
+								}
+								else if (j == 4 && i != 0 && i != 4) {
+										printVertical(grid, i);
+										printHorizontal(grid, j-1);
+								}
+								else if (i == 0 && j != 0 && j != 4) {
+										printVertical(grid, i+1);
+										printHorizontal(grid, j);
+								}
+								else if (i == 4 && j != 0 && j != 4) {
+										printVertical(grid, i-1);
+										printHorizontal(grid, j);
+								}
+								else {
+									printVertical(grid, i);
+									printHorizontal(grid, j);
+								}
+							}
+						}
+					}
+				}
+
+				function printVertical(grid, i) {
+					for (k = 0;k < grid.length;k++) {
+						grid[k][i].setAttribute("class", "marked");
+					}
+
+				}
+
+				function printHorizontal(grid, j) {
+					for (k = 0;k < grid.length;k++) {
+						grid[j][k].setAttribute("class", "marked");
 					}
 				}
 
